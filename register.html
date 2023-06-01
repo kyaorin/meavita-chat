@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>会員登録ページ</title>
+</head>
+
+
+<body>
+    <div class="register_wrapper">
+        <div class="register_title">
+            <h2>ミアビータ無料会員登録ページ</h2>
+            <p>下記内容をご登録いただきますと、お悩みアドバイスや会員限定の特典がご利用いただけます。</p>
+        </div>
+        <div class="qa_wrapper">
+            <div>
+                <p class="q_text">Name</p>
+                <input class="textarea" type="text" id="name" />
+            </div>
+            <div>
+                <p class="q_text">Email</p>
+                <input class="textarea" type="text" id="email" />
+            </div>
+            <div>
+                <p class="q_text">年代</p>
+                <label class="question">
+                    <select id="age">
+                        <option value="age1">40代前半</option>
+                        <option value="age2">40代後半</option>
+                        <option value="age3">30代前半</option>
+                        <option value="age4">30代後半</option>
+                        <option value="age5">50代前半</option>
+                        <option value="age6">50代後半</option>
+                        <option value="age7">20代</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <p class="q_text">職業</p>
+                <label class="question">
+                    <select id="profession">
+                        <option value="profession1">正社員</option>
+                        <option value="profession5">自営業</option>
+                        <option value="profession5">パラレルキャリア</option>
+                        <option value="profession2">派遣社員</option>
+                        <option value="profession3">パート・アルバイト</option>
+                        <option value="profession4">専業主婦（主夫）</option>
+                        <option value="profession6">その他</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <p class="q_text">お子様の有無</p>
+                <label class="question">
+                    <select id="child">
+                        <option value="child1">いる</option>
+                        <option value="child2">いない</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <p class="q_text">ミアビータを何で知りましたか？</p>
+                <label class="question">
+                    <select id="find">
+                        <option value="find1">Voicy</option>
+                        <option value="find2">Instagram</option>
+                        <option value="find3">Facebook</option>
+                        <option value="find4">Twitter</option>
+                        <option value="find4">ネット検索</option>
+                        <option value="find4">メディア</option>
+                        <option value="find4">イベント</option>
+                        <option value="find4">紹介</option>
+                        <option value="find4">その他</option>
+                    </select>
+                </label>
+            </div>
+
+            <div>
+                <p class="q_text">現在、どんなキャリアの悩みを抱えていますか？</p>
+                <textarea class="textarea" id="worry" cols="50" rows="10"></textarea>
+            </div>
+            <div>
+                <p class="q_text">そのキャリアの悩みをいつまでに解決したいですか？</p>
+                <label class="question">
+                    <select id="limit">
+                        <option value="limit1">今すぐにでも解決したい</option>
+                        <option value="limit2">半年以内に解決したい</option>
+                        <option value="limit3">１年以内に解決したい</option>
+                        <option value="limit4">2〜3年以内に解決したい</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <p class="q_text">ミアビータについて当てはまるものはどれですか？</p>
+                <label class="question">
+                    <select id="service">
+                        <option value="service1">専門家に個別相談したい</option>
+                        <option value="service2">コミュニティに参加したい</option>
+                        <option value="service3">キャリアスクールを利用したい</option>
+                        <option value="service4">利用したいが迷っている</option>
+                        <option value="service5">利用するつもりはない</option>
+                    </select>
+                </label>
+            </div>
+            <div class="value_wrapper">
+                <p class="value_text">最後の質問です。あなたにとって「大切な価値観」だと思うものを下記より”５つ”選んでください。</p>
+                <fieldset class="value_checkbox">
+                    <div class="row">
+                        <label class="card">
+                            <input type="checkbox" name="value_checkbox" id="value1" />
+                            <div class="content">
+                                <div class="header">
+                                    <h3>権威/責任</h3>
+                                    <p>・出世コースに乗る<br>・生産的である<br>・権限をもつ<br>・他人より優位な立場にある</p>
+                                </div>
+                            </div>
+                            <div class="checkbox"></div>
+                        </label>
+                        <label class="card">
+                            <input type="checkbox" name="value_checkbox" id="value2" />
+                            <div class="content">
+                                <div class="header">
+                                    <h3>他者への影響力</h3>
+                                    <p>・他人を元気づける<br>・支援する<br>・親切心と気遣いを示す<br>・積極的な影響を与える</p>
+                                </div>
+                            </div>
+                            <div class="checkbox"></div>
+                        </label>
+                        <label class="card">
+                            <input type="checkbox" name="value_checkbox" id="value3" />
+                            <div class="content">
+                                <div class="header">
+                                    <h3>個性の発揮</h3>
+                                    <p>・興味がある/楽しいことをする<br>・スキルと能力を発揮する<br>・知識を習得する<br>・自分自身に対して正直である</p>
+                                </div>
+                            </div>
+                            <div class="checkbox"></div>
+                        </label>
+                        <label class="card">
+                            <input type="checkbox" name="value_checkbox" id="value4" />
+                            <div class="content">
+                                <div class="header">
+                                    <h3>美的追求</h3>
+                                    <p>・美しいものに囲まれる<br>・創造性を発揮する<br>・美しいものを創造する<br>・文化的環境を求める</p>
+                                </div>
+                            </div>
+                            <div class="checkbox"></div>
+                        </label>
+                    </div>
+                    <div class="row">
+                        <label class="card">
+                            <input type="checkbox" name="value_checkbox" id="value5" />
+                            <div class="content">
+                                <div class="header">
+                                    <h3>秩序/完璧性</h3>
+                                    <p>・秩序を作り出す<br>・計画を達成させる<br>・系統だった方法を作る<br>・仕事を系統的に整理する</p>
+                                </div>
+                            </div>
+                            <div class="checkbox"></div>
+                        </label>
+                        <label class="card">
+                            <input type="checkbox" name="value_checkbox" id="value6" />
+                            <div class="content">
+                                <div class="header">
+                                    <h3>自立性</h3>
+                                    <p>・一人で仕事ができる<br>・自分自身で決断できる<br>・時間と場所に柔軟性がある<br>・他人からの指示に従う必要がない</p>
+                                </div>
+                            </div>
+                            <div class="checkbox"></div>
+                        </label>
+                        <label class="card">
+                            <input type="checkbox" name="value_checkbox" id="value7" />
+                            <div class="content">
+                                <div class="header">
+                                    <h3>公共性/公益性</h3>
+                                    <p>・大義のために働く<br>・皆に公正である<br>・社会に役立っていると実感する<br>・政治的な活動をする</p>
+                                </div>
+                            </div>
+                            <div class="checkbox"></div>
+                        </label>
+                        <label class="card">
+                            <input type="checkbox" name="value_checkbox" id="value8" />
+                            <div class="content">
+                                <div class="header">
+                                    <h3>多様性</h3>
+                                    <p>・色々な種類の業務を行う<br>・様々な場所で働く<br>・異業種の人たちと交流がある<br>・常に物事にチャレンジする</p>
+                                </div>
+                            </div>
+                            <div class="checkbox"></div>
+                        </label>
+                    </div>
+                    <div class="row">
+                        <label class="card">
+                            <input type="checkbox" name="value_checkbox" id="value9" />
+                            <div class="content">
+                                <div class="header">
+                                    <h3>社会的評価</h3>
+                                    <p>・名声を得、皆に認められる<br>・他者に先駆ける<br>・専門分野で第一人者である<br>・有名人や一流企業と交流がある</p>
+                                </div>
+                            </div>
+                            <div class="checkbox"></div>
+                        </label>
+                        <label class="card">
+                            <input type="checkbox" name="value_checkbox" id="value10" />
+                            <div class="content">
+                                <div class="header">
+                                    <h3>報酬と豊かな生活</h3>
+                                    <p>・高収入を得る<br>・豊かな生活を送る<br>・流行の衣類を身に付ける<br>・高価な所有物を持つ</p>
+                                </div>
+                            </div>
+                            <div class="checkbox"></div>
+                        </label>
+                        <label class="card">
+                            <input type="checkbox" name="value_checkbox" id="value11" />
+                            <div class="content">
+                                <div class="header">
+                                    <h3>リスク/冒険性</h3>
+                                    <p>・世界中を飛び回って働く<br>・肉体的なリスクに挑戦する<br>・新しいユニークな経験をする<br>・経済的なリスクを厭わない</p>
+                                </div>
+                            </div>
+                            <div class="checkbox"></div>
+                        </label>
+                        <label class="card">
+                            <input type="checkbox" name="value_checkbox" id="value12" />
+                            <div class="content">
+                                <div class="header">
+                                    <h3>安全性/安心感</h3>
+                                    <p>・健康を維持する<br>・経済的安定がある<br>・定職をもつ<br>・身体的に安全である</p>
+                                </div>
+                            </div>
+                            <div class="checkbox"></div>
+                        </label>
+                    </div>
+                    <div class="row">
+                        <label class="card">
+                            <input type="checkbox" name="value_checkbox" id="value13" />
+                            <div class="content">
+                                <div class="header">
+                                    <h3>プライベートの時間</h3>
+                                    <p>・家族のために十分な時間をもつ<br>・余暇のために十分な時間をとる<br>・ストレスを最小限に抑える<br>・勤務時間が一定である</p>
+                                </div>
+                            </div>
+                            <div class="checkbox"></div>
+                        </label>
+                        <label class="card">
+                            <input type="checkbox" name="value_checkbox" id="value14" />
+                            <div class="content">
+                                <div class="header">
+                                    <h3>協調性</h3>
+                                    <p>・自分一人で決定を下さなくていい<br>・チームやグループで仕事をする<br>・人と友好関係を維持する<br>・他人をリードする必要がない</p>
+                                </div>
+                            </div>
+                            <div class="checkbox"></div>
+                        </label>
+                        <label class="card">
+                            <input type="checkbox" name="value_checkbox" id="value15" />
+                            <div class="content">
+                                <div class="header">
+                                    <h3>身体的活動</h3>
+                                    <p>・体を使った仕事をする<br>・手を使って物作りをする<br>・動き回る仕事をする<br>・健康状態に十分な注意を払う</p>
+                                </div>
+                            </div>
+                            <div class="checkbox"></div>
+                        </label>
+                        <label class="card">
+                            <p>価値観リスト<br>日本マンパワー<br>バリューカード参照</p>
+                        </label>
+                    </div>
+
+                </fieldset>
+            </div>
+            <button type="button" id="send" class="send">登録</button>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+        <script type="module">
+
+            // 必要なFirebaseライブラリを読み込み
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+            import { getFirestore, collection, addDoc, serverTimestamp }
+                from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
+            import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged }
+                from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+
+
+            // Firebase configuration KEYを取得して設定
+            const firebaseConfig = {
+
+                authDomain: "meavita-chat.firebaseapp.com",
+                projectId: "meavita-chat",
+                storageBucket: "meavita-chat.appspot.com",
+                messagingSenderId: "940220230564",
+                appId: "1:940220230564:web:b8a04e71d511c6f759ef31"
+            };
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+
+
+            //ユーザーの認証情報を取得
+            const auth = getAuth();
+            let user;
+            onAuthStateChanged(auth, (currentUser) => {
+                if (currentUser) {
+                    // User is signed in.
+                    user = currentUser;
+                    // ...
+                } else {
+                    // User is signed out.
+                    // ...
+                }
+            });
+
+
+            //登録処理//
+            $("#send").on("click", function () {
+                let values = [];
+                $('input[name="value_checkbox"]:checked').each(function () {
+                    values.push($(this).next().find('h3').text());
+                });
+                const postData = {
+                    name: $("#name").val(),
+                    email: $("#email").val(),
+                    age: $("#age").find('option:selected').text(),
+                    profession: $("#profession").find('option:selected').text(),
+                    child: $("#child").find('option:selected').text(),
+                    find: $("#find").find('option:selected').text(),
+                    worry: $("#worry").val(),
+                    limit: $("#limit").find('option:selected').text(),
+                    service: $("#service").find('option:selected').text(),
+                    value: values,
+                    time: serverTimestamp(),
+                };
+                addDoc(collection(db, "meavita-chat"), postData);
+            });
+
+
+        </script>
+
+</body>
+
+</html>

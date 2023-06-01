@@ -1,0 +1,44 @@
+{
+    "rules":{
+        "users":{
+            "$uid":{
+                ".write": "$uid === auth.uid",
+                ".read": "$uid === auth.uid",
+            }
+        }
+    }
+}
+
+＊＊＊chatGPTによるアドバイス＊＊＊
+
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default rule for all documents: deny all reads and writes
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Specific rules for user documents
+    match /users/{uid} {
+      allow write: if request.auth.uid == uid;
+      allow read: if request.auth.uid == uid;
+    }
+  }
+}
+
+
+＊＊＊アドバイスに基づいた変更ルール＊＊＊
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{uid} {
+      allow write: if request.auth.uid == uid;
+      allow read: if request.auth.uid == uid;
+    }
+  }
+}

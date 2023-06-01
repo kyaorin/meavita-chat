@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>会員専用ページ</title>
+</head>
+
+
+<body>
+
+    <header>
+        <div>
+            名前：<span id="uname"></span><br>
+            <img src="" id="prof">
+        </div>
+        <div>
+            <p>お問い合わせ・ご質問はこちら</p>
+            <select id="category">
+                <option value="category1">ミアビータのサービスについて</option>
+                <option value="category2">会員ページの使い方について</option>
+                <option value="category3">ログイン方法について</option>
+                <option value="category4">専門家について</option>
+            </select>
+        </div>
+        <div>
+            <textarea id="text" cols="30" rows="10"></textarea>
+            <button id="send">送信</button>
+        </div>
+
+
+
+        <button class="logout" id="logout">ログアウト</button>
+
+    </header>
+
+
+
+    <script type="module">
+
+        // 必要なFirebaseライブラリを読み込み
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged }
+            from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+
+        // Firebase configuration KEYを取得して設定
+        const firebaseConfig = {
+
+            authDomain: "meavita-chat.firebaseapp.com",
+            projectId: "meavita-chat",
+            storageBucket: "meavita-chat.appspot.com",
+            messagingSenderId: "940220230564",
+            appId: "1:940220230564:web:b8a04e71d511c6f759ef31"
+        };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        //GoogleAuth認証用
+        const provider = new GoogleAuthProvider();
+        provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
+        const auth = getAuth();
+
+
+        //ログインボタンの動き//
+        $(document).ready(function () {
+            $("#login").addClass("bob");
+        });
+
+        //ログイン処理//
+        $("#login").on("click", function () {
+            //Google認証完了後の処理
+            signInWithPopup(auth, provider).then((result) => {
+                //ログイン後のページ遷移先（次のページ）
+                location.href = "register.html";
+            }).catch((error) => {
+                //エラー処理
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                //使用されているユーザーアカウントのメール
+                const email = error.email;
+                //使用された認証タイプ
+                const credential = GoogleAuthProvider.credentialFromError(error);
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
