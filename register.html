@@ -80,8 +80,18 @@
             </div>
 
             <div>
-                <p class="q_text">現在、どんなキャリアの悩みを抱えていますか？</p>
-                <textarea class="textarea" id="worry" cols="50" rows="10"></textarea>
+                <p class="q_text">今一番、解決したいキャリアのお悩みは何ですか？</p>
+                <label class="question">
+                    <select id="worry">
+                        <option value="worry1">仕事にやりがいを感じられない</option>
+                        <option value="worry2">自分の才能や強みを知りたい</option>
+                        <option value="worry3">ブレない価値観や自分軸をみつけたい</option>
+                        <option value="worry4">転職をしたい</option>
+                        <option value="worry4">起業・複業をしたい</option>
+                        <option value="worry4">収入の柱を増やしたい</option>
+                        <option value="worry4">仕事と子育ての両立に悩んでいる</option>
+                    </select>
+                </label>
             </div>
             <div>
                 <p class="q_text">そのキャリアの悩みをいつまでに解決したいですか？</p>
@@ -284,7 +294,7 @@
 
             // 必要なFirebaseライブラリを読み込み
             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
-            import { getFirestore, collection, addDoc, serverTimestamp }
+            import { getFirestore, collection, addDoc, serverTimestamp, doc, setDoc }
                 from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
             import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged }
                 from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
@@ -303,9 +313,12 @@
             const app = initializeApp(firebaseConfig);
             const db = getFirestore(app);
 
-
-            //ユーザーの認証情報を取得
+            //GoogleAuth認証用、ユーザーの認証情報を取得
+            const provider = new GoogleAuthProvider();
+            provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
             const auth = getAuth();
+
+            //ログインしていれば処理する***重要***
             let user;
             onAuthStateChanged(auth, (currentUser) => {
                 if (currentUser) {
@@ -319,7 +332,7 @@
             });
 
 
-            //登録処理//
+            //データ登録の処理//
             $("#send").on("click", function () {
                 let values = [];
                 $('input[name="value_checkbox"]:checked').each(function () {
@@ -332,13 +345,29 @@
                     profession: $("#profession").find('option:selected').text(),
                     child: $("#child").find('option:selected').text(),
                     find: $("#find").find('option:selected').text(),
-                    worry: $("#worry").val(),
+                    worry: $("#worry").find('option:selected').text(),
                     limit: $("#limit").find('option:selected').text(),
                     service: $("#service").find('option:selected').text(),
                     value: values,
                     time: serverTimestamp(),
                 };
-                addDoc(collection(db, "meavita-chat"), postData);
+
+                // ユーザーが認証されていることを確認する
+                if (user) {
+                    //ユーザーのuidをドキュメントIDとして使用して、ユーザーのデータをFirestoreに追加します。
+                    const userRef = doc(db, "meavita-chat", user.uid);
+                    setDoc(userRef, postData)
+                        .then(() => {
+                            console.log("Document successfully written!");
+                            // データの格納が成功したらuserpageにページ遷移する
+                            window.location.href = "userpage.html";
+                        })
+                        .catch((error) => {
+                            console.error("Error writing document: ", error);
+                            // エラーが発生した場合はindex.htmlにページ遷移する
+                            window.location.href = "index.html";
+                        });
+                }
             });
 
 
